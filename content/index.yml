@@ -1,8 +1,8 @@
 seo:
-  title: "Emma Thompson - UX/UI Designer"
+  title: "Luc Dumas - Software Engineer"
   description: "Welcome to my portfolio! I'm Emma Thompson, a UX/UI designer and front-end developer based in Boston. I specialize in creating user-centered digital experiences that are both beautiful and functional."
-title: "Hey, I'm Emma Thompson UX/UI Designer"
-description: "I craft intuitive digital experiences where design meets functionality. Based in Boston, bringing ideas to life through code and creativity."
+title: "Hi, I'm Luc Dumas"
+description: "Full-stack software engineer with a strong front-end focus. I enjoy building clean, reliable systems and learning something new every day."
 hero:
   links:
     - label: "Use this template"
@@ -30,8 +30,9 @@ hero:
 about:
   title: "About Me"
   description: |
-    As a UX/UI designer and front-end developer with 6 years of experience, I leverage my Boston University Interactive Design degree to craft user-centered digital experiences.
-    My approach blends creative strategy with technical expertise, transforming concepts into functional, purposeful digital products that seamlessly integrate design and technology.
+   I’m a software engineer who likes building clear, reliable, and well-crafted products. I spent several years at WeVideo working across large front-end and full-stack systems, and now I run Union Web Solutions, where I build custom apps and tools for small businesses — including a full invoice and billing application.
+
+I come from a background of hands-on craftsmanship, and that mindset still shapes how I approach software: break down complex problems, build with intention, and aim for simplicity that lasts.
 experience:
   title: Work Experience
   items:
@@ -42,13 +43,13 @@ experience:
         logo: "i-simple-icons-nuxtdotjs"
         url: "https://nuxt.com"
         color: "#00DC82"
-    - position: "Assets Designer at"
-      date: "2022 - 2023"
+    - position: "Software Engineer"
+      date: "2022 - 2025"
       company:
-        name: Raycast
-        logo: "i-simple-icons-raycast"
-        url: "https://raycast.com"
-        color: "#FF6363"
+        name: Wevideo
+        logo: ""
+        url: "https://wevideo.com"
+        color: "#1f7f8e"
     - position: "Senior UX/UI Designer at"
       date: "2020 - 2021"
       company:
@@ -118,3 +119,4 @@ faq:
         - label: What are your hobbies outside of work?
           content: |
             When I'm not designing or coding, I enjoy exploring Boston's neighborhoods, trying out new coffee shops, and hiking in the nearby reservations. I'm also passionate about photography and occasionally contribute to open-source projects.
+

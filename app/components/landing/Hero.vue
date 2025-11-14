@@ -33,11 +33,11 @@ defineProps<{
           delay: 0.1
         }"
       >
-        <UColorModeAvatar
-          class="size-18 ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
-          :light="global.picture?.light!"
-          :dark="global.picture?.dark!"
-          :alt="global.picture?.alt!"
+
+       <img
+          src="/me.png"
+          alt="My profile picture"
+          class="h-24 w-24 rounded-full object-cover ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
         />
       </Motion>
     </template>
@@ -85,7 +85,7 @@ defineProps<{
     </template>
 
     <template #links>
-      <Motion
+      <!-- <Motion
         :initial="{
           scale: 1.1,
           opacity: 0,
@@ -127,7 +127,7 @@ defineProps<{
             </template>
           </UButton>
         </div>
-      </Motion>
+      </Motion> -->
 
       <div class="gap-x-4 inline-flex mt-4">
         <Motion
@@ -156,7 +156,7 @@ defineProps<{
       </div>
     </template>
 
-    <UMarquee
+    <!-- <UMarquee
       pause-on-hover
       class="py-2 -mx-8 sm:-mx-12 lg:-mx-16 [--duration:40s]"
     >
@@ -186,6 +186,6 @@ defineProps<{
           v-bind="img"
         />
       </Motion>
-    </UMarquee>
+    </UMarquee> -->
   </UPageHero>
 </template>
