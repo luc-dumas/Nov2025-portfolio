@@ -19,8 +19,8 @@ useHead({
 
 useSeoMeta({
   titleTemplate: 'Luc Dumas Portfolio',
-  ogImage: 'nuxtimage.png',
-  twitterImage: 'nuxtimage.png',
+  ogImage: '/nuxtimage.png',
+  twitterImage: '/nuxtimage.png'
 })
 useSeoMeta({
   title: 'My Experience – Luc Dumas',
