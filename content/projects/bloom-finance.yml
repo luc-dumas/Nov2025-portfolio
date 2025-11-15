@@ -1,6 +1,12 @@
-title: Bloom Finance App Redesign
-description: Led the complete UX/UI overhaul and front-end implementation for a personal finance platform, focusing on data visualization clarity and improving user onboarding flow. Resulted in a 32% increase in user retention.
-image: https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80 # Example image of dashboards/finance app
-url: "#"
-tags: ["UX Design", "UI Design"]
-date: "2024"
+title: Invoice App for Small Service Businesses
+description: >
+  A full-stack invoicing platform built with Nuxt 3, Vue, Supabase, Postgres,
+  and TypeScript. Supports multi-business accounts, customer management,
+  invoice creation with dynamic line items, due dates, notes, PDF generation
+  with Puppeteer, and a clean dashboard UI using Nuxt UI. Architecture includes
+  RLS-secured Postgres tables, Pinia-based state management, role-based access,
+  and a modular, scalable data model designed for real-world SaaS use.
+image: /assets/images/invoice.gif/
+url: "https://your-demo-url.com"
+tags: ["Nuxt 3", "Supabase", "Postgres", "TypeScript", "PDF Generation", "Full-Stack"]
+date: "2025"

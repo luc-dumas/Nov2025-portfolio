@@ -21,42 +21,55 @@ useSeoMeta({
 </script>
 
 <template>
-  <UPage v-if="page">
-    <UPageHero
-      :title="page.title"
-      :description="page.description"
-      orientation="horizontal"
-      :ui="{
-        container: 'lg:flex sm:flex-row items-center',
-        title: '!mx-0 text-left',
-        description: '!mx-0 text-left',
-        links: 'justify-start'
-      }"
-    >
-      <UColorModeAvatar
-        class="sm:rotate-4 size-36 rounded-lg ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
-        :light="global.picture?.light!"
-        :dark="global.picture?.dark!"
-        :alt="global.picture?.alt!"
-      />
-    </UPageHero>
-    <UPageSection
-      :ui="{
-        container: '!pt-0'
-      }"
-    >
-      <MDC
-        :value="page.content"
-        unwrap="p"
-      />
-      <div class="flex flex-row justify-center items-center py-10 space-x-[-2rem]">
-        <PolaroidItem
-          v-for="(image, index) in page.images"
-          :key="index"
-          :image="image"
-          :index
+  <UPage v-if="page" class="-mt-15 -pb-20">
+    <!-- slightly narrower like a centered card -->
+    <UPageSection :ui="{ container: 'max-w-3xl mx-auto' }">
+      <!-- Header -->
+      <header
+        class="flex flex-col md:flex-row items-center justify-center gap-4 py-6"
+      >
+        <div class="text-center md:text-left">
+          <h1 class="text-3xl font-semibold">
+            {{ page.title }}
+          </h1>
+          <p class="mt-2 text-sm text-muted max-w-xl">
+            {{ page.description }}
+          </p>
+        </div>
+
+        <img
+          :src="global.picture?.light"
+          :alt="global.picture?.alt"
+          class="w-24 h-24 sm:w-28 sm:h-28 rounded-full object-cover shadow-md ring ring-default ring-offset-3 ring-offset-(--ui-bg)"
         />
+      </header>
+
+      <!-- Your markdown content -->
+      <div class="-mt-7 text-sm text-muted">
+        <MDC :value="page.content" unwrap="p" />
+      </div>
+
+      <!-- Your carousel -->
+      <div class="mt-10">
+        <UCarousel
+          v-slot="{ item }"
+          dots
+          arrows
+          :items="page.images"
+          :ui="{ item: 'basis-1/2 sm:basis-1/3 md:basis-1/4 px-2' }"
+        >
+          <img
+            :src="item.src"
+            :alt="item.alt"
+            width="360"
+            height="360"
+            class="rounded-lg object-cover h-48 w-48 mx-auto"
+          >
+        </UCarousel>
       </div>
     </UPageSection>
   </UPage>
 </template>
+
+<style scoped>
+</style>

@@ -1,0 +1,21 @@
+title: Experience
+description: A quick overview of my work as a full-stack engineer and the projects I’ve shipped.
+seo:
+  title: Experience – Luc Dumas
+  description: My professional experience as a full-stack engineer.
+content: |
+  ### Experience
+
+  **WeVideo / PlayPosit — Software Engineer**  
+  Aug 2022 – Jul 2025  
+  - Worked across a Vue + Node.js/Express + MySQL stack  
+  - Migrated PlayPosit from Vue 2 → Vue 3  
+  - Helped with the React rewrite and platform integration  
+
+  **Union Web Solutions — Freelance / Founder**  
+  2025 – Present  
+  - Building custom websites and small SaaS tools for businesses  
+  - Currently shipping a full-stack invoicing app (Nuxt 3 + Supabase)
+
+  _(You can flesh this out later with a proper timeline / cards / logos.)_
+path: /experience

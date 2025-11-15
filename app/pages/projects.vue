@@ -26,82 +26,208 @@ useSeoMeta({
 
 <template>
   <UPage v-if="page">
-    <UPageHero
-      :title="page.title"
-      :description="page.description"
-      :links="page.links"
-      :ui="{
-        title: '!mx-0 text-left',
-        description: '!mx-0 text-left',
-        links: 'justify-start'
-      }"
+    <!-- Divider -->
+    <div class="mt-20 mb-5 flex items-center justify-center gap-3 text-xs font-medium uppercase tracking-[0.2em] text-gray-400">
+      <div class="h-px w-24 bg-gradient-to-r from-gray-200 to-transparent" />
+      <span>Recent work</span>
+      <div class="h-px w-24 bg-gradient-to-l from-gray-200 to-transparent" />
+    </div>
+
+    <!-- INVOICE APP -->
+    <UPageSection
+      class="-mt-28"
+      description="A full-stack invoicing platform built with Nuxt 3, Supabase, and Postgres, focused on being fast, clean, and easy to use."
     >
-      <template #links>
-        <div
-          v-if="page.links"
-          class="flex items-center gap-2"
-        >
-          <UButton
-            :label="page.links[0]?.label"
-            :to="global.meetingLink"
-            v-bind="page.links[0]"
-          />
-          <UButton
-            :to="`mailto:${global.email}`"
-            v-bind="page.links[1]"
-          />
+      <template #title>
+        <div>
+          <h2 class="text-4xl font-semibold">Dueful</h2>
+          <a
+            href="https://dueful.digital"
+            target="_blank"
+            rel="noopener"
+            class="text-primary text-sm font-medium hover:underline mt-3 block"
+          >
+            dueful.digital →
+          </a>
         </div>
       </template>
-    </UPageHero>
-    <UPageSection
-      :ui="{
-        container: '!pt-0'
-      }"
-    >
-      <Motion
-        v-for="(project, index) in projects"
-        :key="project.title"
-        :initial="{ opacity: 0, transform: 'translateY(10px)' }"
-        :while-in-view="{ opacity: 1, transform: 'translateY(0)' }"
-        :transition="{ delay: 0.2 * index }"
-        :in-view-options="{ once: true }"
-      >
-        <UPageCard
-          :title="project.title"
-          :description="project.description"
-          :to="project.url"
-          orientation="horizontal"
-          variant="naked"
-          :reverse="index % 2 === 1"
-          class="group"
-          :ui="{
-            wrapper: 'max-sm:order-last'
-          }"
-        >
-          <template #leading>
-            <span class="text-sm text-muted">
-              {{ new Date(project.date).getFullYear() }}
-            </span>
-          </template>
-          <template #footer>
-            <ULink
-              :to="project.url"
-              class="text-sm text-primary flex items-center"
+      <div class="grid gap-8 lg:grid-cols-[minmax(0,2fr),minmax(0,3fr)] items-start -mt-2">
+        <!-- MAIN DESCRIPTION -->
+        <div class="space-y-6">
+          <p class="text-sm text-muted">
+           This is a lightweight invoicing software. The app handles multi-business accounts, customers, invoices with dynamic line items, due dates, notes, PDF exports, and a clean dashboard. I built it end-to-end: database schema, RLS rules, state management, and UI. Future roadmap includes email sending, reminder automation, and e-signature integration.
+          </p>
+          <div class="space-y-2">
+            <h3 class="text-xs font-semibold tracking-wide uppercase text-muted">
+              Core features
+            </h3>
+            <ul class="text-sm space-y-1 list-disc pl-4 text-muted">
+              <li>Dashboard with revenue summaries and recent activity</li>
+              <li>Customer management with search and quick actions</li>
+              <li>Invoice creation flow with live totals and validation</li>
+              <li>Status filtering: paid, unpaid, overdue, upcoming</li>
+              <li>Print-ready PDF invoice generation</li>
+              <li>Responsive UI optimized for mobile and desktop</li>
+            </ul>
+          </div>
+          <!-- EXPANDABLE TECHNICAL DETAILS -->
+          <details class="group rounded-lg border border-muted/60 bg-muted/10 px-4 py-3">
+            <summary
+              class="flex cursor-pointer items-center justify-between text-sm font-medium text-foreground list-none"
             >
-              View Project
+              <span>Technical details</span>
               <UIcon
-                name="i-lucide-arrow-right"
-                class="size-4 text-primary transition-all opacity-0 group-hover:translate-x-1 group-hover:opacity-100"
+                name="i-lucide-chevron-down"
+                class="size-4 transition-transform group-open:rotate-180"
               />
-            </ULink>
-          </template>
+            </summary>
+
+            <div class="mt-4 space-y-4 text-sm text-muted">
+
+              <!-- Tech stack -->
+              <div class="space-y-2">
+                <h3 class="text-xs font-semibold tracking-wide uppercase text-muted">
+                  Tech stack
+                </h3>
+                <ul class="text-sm space-y-1 list-disc pl-4 text-muted">
+                  <li>Nuxt 3, Vue 3 (Composition API), Nuxt UI, Tailwind CSS</li>
+                  <li>Supabase Auth, Postgres with Row-Level Security</li>
+                  <li>Pinia for auth, invoices, customers, and business state</li>
+                  <li>Puppeteer for server-side PDF generation</li>
+                  <li>Email delivery via Postmark/SendGrid, Stripe for payments (planned)</li>
+                </ul>
+              </div>
+
+
+
+      <!-- Architecture -->
+<div class="space-y-2">
+  <h3 class="text-xs font-semibold tracking-wide uppercase text-muted">
+    Architecture
+  </h3>
+  <ul class="text-sm space-y-1 list-disc pl-4 text-muted">
+    <li>Postgres relational schema (businesses, customers, invoices, items)</li>
+    <li>Multi-tenant structure with strict RLS by <code class="font-mono text-xs">business_id</code></li>
+    <li>Supabase Auth for identity + policy enforcement</li>
+    <li>Pinia store for cross-page state and active business context</li>
+    <li>Nuxt 3 server routes for secure actions (PDF generation, DB ops)</li>
+    <li>Component-driven UI using Nuxt UI</li>
+    <li>Puppeteer-based PDF generator with a dedicated template</li>
+    <li>Clean folder architecture with composables, stores, and API routes</li>
+  </ul>
+</div>
+
+
+            </div>
+          </details>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="space-y-4">
+
           <img
-            :src="project.image"
-            :alt="project.title"
-            class="object-cover w-full h-48 rounded-lg"
+            src="assets/images/invoice.gif"
+            alt="Invoice app dashboard"
+            class="rounded-xl border object-cover w-full aspect-video"
           >
-        </UPageCard>
-      </Motion>
+        </div>
+      </div>
     </UPageSection>
+
+<!-- ART PORTFOLIO / PAYLOAD CMS STYLE -->
+<UPageSection
+  description="A content-driven art site built with Next.js and a custom TypeScript CMS, designed for fast publishing and clean presentation."
+  class="-mt-20"
+>
+  <template #title>
+    <div>
+      <h2 class="text-4xl font-semibold">Artwork CMS + Portfolio</h2>
+      <a
+        href="https://henridumas.art"
+        target="_blank"
+        rel="noopener"
+        class="text-primary text-sm font-medium hover:underline mt-3 block"
+
+      >
+        henridumas.art →
+      </a>
+    </div>
+  </template>
+
+  <div class="grid gap-8 lg:grid-cols-[minmax(0,2fr),minmax(0,3fr)] items-start">
+    <!-- LEFT -->
+    <div class="space-y-6">
+      <p class="text-sm text-muted">
+        A fast, minimal art portfolio built with Next.js and a structured content backend. New artworks, series, and pages can be added without touching code, keeping publishing simple and efficient.
+      </p>
+
+      <!-- Core features -->
+      <div class="space-y-2">
+        <h3 class="text-xs font-semibold tracking-wide uppercase text-muted">
+          Core features
+        </h3>
+        <ul class="text-sm space-y-1 list-disc pl-4 text-muted">
+          <li>Custom content types for artworks, series, and pages</li>
+          <li>Rich text and media field support</li>
+          <li>Responsive gallery rendering</li>
+          <li>SEO-friendly routing</li>
+        </ul>
+      </div>
+
+      <!-- EXPANDABLE TECHNICAL DETAILS -->
+      <details class="group rounded-lg border border-muted/60 bg-muted/10 px-4 py-3">
+        <summary
+          class="flex cursor-pointer items-center justify-between text-sm font-medium text-foreground list-none"
+        >
+          <span>Technical details</span>
+          <UIcon
+            name="i-lucide-chevron-down"
+            class="size-4 transition-transform group-open:rotate-180"
+          />
+        </summary>
+
+        <div class="mt-4 space-y-4 text-sm text-muted">
+
+          <!-- Tech stack -->
+          <div class="space-y-2">
+            <h3 class="text-xs font-semibold tracking-wide uppercase text-muted">
+              Tech stack
+            </h3>
+            <ul class="text-sm space-y-1 list-disc pl-4 text-muted">
+              <li>Next.js, React, TypeScript</li>
+              <li>Custom CMS (Node.js + Express)</li>
+              <li>Tailwind CSS for layout and typography</li>
+              <li>API-driven content (REST/JSON)</li>
+            </ul>
+          </div>
+
+          <!-- Architecture -->
+          <div class="space-y-2">
+            <h3 class="text-xs font-semibold tracking-wide uppercase text-muted">
+              Architecture
+            </h3>
+            <ul class="text-sm space-y-1 list-disc pl-4 text-muted">
+              <li>CMS defines structured schema</li>
+              <li>Next.js statically generates public pages</li>
+              <li>Incremental revalidation on content change</li>
+            </ul>
+          </div>
+
+        </div>
+      </details>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div class="space-y-4">
+      <img
+        src="assets/images/payload.gif"
+        alt="Artwork CMS and portfolio preview"
+        class="rounded-xl border object-cover w-full aspect-video"
+      >
+    </div>
+  </div>
+</UPageSection>
+
+
   </UPage>
 </template>
