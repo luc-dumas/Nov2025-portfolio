@@ -5,7 +5,7 @@ description: >
   invoice creation with dynamic line items, due dates, notes, PDF generation
   with Puppeteer, and a clean dashboard UI using Nuxt UI. Architecture includes
   RLS-secured Postgres tables, Pinia-based state management, role-based access,
-  and a modular, scalable data model designed for real-world SaaS use.
+  and a modular, scalable data model designed for real-world use.
 image: /assets/images/invoice.gif/
 url: "https://your-demo-url.com"
 tags: ["Nuxt 3", "Supabase", "Postgres", "TypeScript", "PDF Generation", "Full-Stack"]
