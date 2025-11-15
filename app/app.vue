@@ -18,10 +18,15 @@ useHead({
 })
 
 useSeoMeta({
-  titleTemplate: '%s - Nuxt Portfolio Template',
-  ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/portfolio-light.png',
-  twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/portfolio-light.png',
-  twitterCard: 'summary_large_image'
+  titleTemplate: 'Luc Dumas Portfolio',
+  ogImage: 'nuxtimage.png',
+  twitterImage: 'nuxtimage.png',
+})
+useSeoMeta({
+  title: 'My Experience – Luc Dumas',
+  ogTitle: 'My Experience – Luc Dumas',
+  description: 'My experience as a freelance full-stack engineer and software engineer at WeVideo.',
+  ogDescription: 'My experience as a freelance full-stack engineer and software engineer at WeVideo.'
 })
 
 const [{ data: navigation }, { data: files }] = await Promise.all([
