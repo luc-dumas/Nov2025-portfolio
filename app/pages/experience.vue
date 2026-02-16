@@ -27,7 +27,7 @@ useSeoMeta({
               Union Web Solutions, Freelance Full-Stack Engineer
             </h2>
             <p class="text-sm text-muted">
-              August 2025 - Present
+              2026 - Present
             </p>
           </div>
 
@@ -48,7 +48,7 @@ useSeoMeta({
               WeVideo, Software Engineer
             </h2>
             <p class="text-sm text-muted">
-              August 2022 - July 2025
+              August 2022 - 2025
             </p>
           </div>
 
